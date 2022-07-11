@@ -1,0 +1,11 @@
+os: linux
+dist: bionic
+arch: ppc64le
+
+group: edge
+
+script:
+  - ls -lh $HOME # Check .cargo folder permission. Should be owned by travis user
+  - sudo cat /etc/docker/daemon.json # mtu should be 1460
+  - docker run -t --rm alpine:latest ip addr # mtu of eth should be 1460
+  - docker run -t --rm alpine:latest apk update
