@@ -8,8 +8,8 @@ script:
   - docker run -t --rm alpine:latest ip addr # mtu of eth should be 1460
   - docker run -t --rm alpine:latest apk update # check internet inside docker container
 
-include:
-  jobs:
+jobs:
+  include:
     - arch: ppc64le
       dist: bionic
     - arch: ppc64le
