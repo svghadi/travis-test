@@ -7,6 +7,10 @@ script:
   - ls -la $HOME 
   - ls -la $HOME/.cargo
 
+language: python
+python:
+  - "3.8"
+
 jobs:
   include:
     - arch: ppc64le
