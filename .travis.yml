@@ -1,6 +1,6 @@
 os: linux
 
-group: edge
+#group: edge
 
 script:
   # Check .cargo folder permission. Should be owned by travis user
@@ -13,6 +13,7 @@ jobs:
       dist: bionic
     - arch: ppc64le
       dist: focal
+    # xenial will be deprecated in future
     - arch: ppc64le
       dist: xenial
 
