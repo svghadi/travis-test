@@ -1,7 +1,5 @@
 os: linux
 
-group: edge
-
 script:
   # Check .cargo folder permission. Should be owned by travis user
   - ls -la $HOME 
