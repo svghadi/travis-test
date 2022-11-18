@@ -2,17 +2,17 @@ os: linux
 
 #group: edge
 
-script:
-  - ls -la $HOME # Check .cargo folder permission. Should be owned by travis user
-  - sudo cat /etc/docker/daemon.json # mtu should be 1460
-  - docker run -t --rm alpine:latest ip addr # mtu of eth should be 1460
-  - docker run -t --rm alpine:latest apk update # check internet inside docker container
+before_script:
+  - docker pull ubuntu:latest
+  - docker pull node:latest
 
+script:
+  - cat /sys/fs/cgroup/cpuset/cpuset.cpus
+  - nproc
+  - docker run  -t ubuntu:latest bash -c 'cat /sys/fs/cgroup/cpuset/cpuset.cpus && nproc'
+  - docker run --rm -t node:latest node -e "console.log(require('os').cpus().length)"
+  
 jobs:
   include:
-    - arch: ppc64le
-      dist: bionic
-    - arch: ppc64le
-      dist: focal
     - arch: ppc64le
     - arch: amd64
