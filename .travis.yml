@@ -7,15 +7,12 @@ before_script:
   - docker pull node:latest
 
 script:
-  - |
-    echo "cpu count using nproc in lxd"
-    nproc
-  - |
-    echo "cpu count using nproc in docker"
-    docker run  -t ubuntu:latest bash -c 'nproc'
-  - |
-    echo "cpu count using nodejs in docker"
-    docker run --rm -t node:latest node -e "console.log(require('os').cpus().length)"
+  - echo "cpu count using nproc in lxd"
+  - nproc
+  - echo "cpu count using nproc in docker"
+  - docker run  -t ubuntu:latest bash -c 'nproc'
+  - echo "cpu count using nodejs in docker"
+  - docker run --rm -t node:latest node -e "console.log(require('os').cpus().length)"
   
 jobs:
   include:
