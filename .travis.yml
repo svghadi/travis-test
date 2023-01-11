@@ -9,4 +9,4 @@ os: linux
 language: clojure
 
 install: skip
-script: clojure hello.clj
+script: lein2 exec -e "(use 'clojure.pprint) (pprint (map inc (range 10)))"
