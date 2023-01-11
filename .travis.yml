@@ -1,12 +1,12 @@
-os: linux
 
-#group: edge
+language: scala
+
+scala: 2.13.3
 
 script:
-  - ls -la $HOME # Check .cargo folder permission. Should be owned by travis user
-  - sudo cat /etc/docker/daemon.json # mtu should be 1460
-  - docker run -t --rm alpine:latest ip addr # mtu of eth should be 1460
-  - docker run -t --rm alpine:latest apk update # check internet inside docker container
+   - sudo ls -al /etc/sbt/ || true
+   - sudo cat /etc/sbt/jvmopts || true
+   - sbt test
 
 jobs:
   include:
@@ -14,5 +14,10 @@ jobs:
       dist: bionic
     - arch: ppc64le
       dist: focal
-    - arch: ppc64le
+    - arch: s390x
+      dist: bionic
+    - arch: s390x
+      dist: focal
     - arch: amd64
+      dist: focal
+
