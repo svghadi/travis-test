@@ -9,4 +9,4 @@ os: linux
 language: clojure
 
 install: skip
-script: skip
+script: clojure hello.clj
