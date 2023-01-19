@@ -1,9 +1,4 @@
 #https://docs.travis-ci.com/user/database-setup/#redis
-
-arch:
-  - amd64
-  - ppc64le
-  
 service:
   - redis-server
  
